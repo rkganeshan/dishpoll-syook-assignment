@@ -18,11 +18,14 @@ const Main=()=>{
                                     <h5 className="card-title">Choose Rank for Dishes</h5>
                                 </div>
                         </div>
-                        {JSON.parse(localStorage.getItem("overAllRanks"))[JSON.parse(localStorage.getItem("overAllRanks")).length-1].userId==JSON.parse(localStorage.getItem("loggedInUser")).id
+                        {
+                        localStorage.getItem("overAllRanks")!=null && 
+                        JSON.parse(localStorage.getItem("overAllRanks"))[JSON.parse(localStorage.getItem("overAllRanks"))?.length-1].userId==JSON.parse(localStorage.getItem("loggedInUser")).id
                         && 
                             <div className="card btn mt-lg-5 mt-2 btn-outline-danger" 
                             onClick={()=>{
                                history.push("/pollresult");
+                               setTimeout(()=>window.location.reload(),0);
                            }}
                            >
                                    <div className="card-body">
@@ -30,7 +33,9 @@ const Main=()=>{
                                    </div>
                            </div>
                         }
-                        {JSON.parse(localStorage.getItem("overAllRanks"))[JSON.parse(localStorage.getItem("overAllRanks")).length-1].userId!=JSON.parse(localStorage.getItem("loggedInUser")).id
+                        {
+                        localStorage.getItem("overAllRanks")!=null &&     
+                        JSON.parse(localStorage.getItem("overAllRanks"))[JSON.parse(localStorage.getItem("overAllRanks")).length-1].userId!=JSON.parse(localStorage.getItem("loggedInUser")).id
                             && 
                             <div className="card btn mt-lg-5 mt-2 btn-outline-danger disabled" 
                             

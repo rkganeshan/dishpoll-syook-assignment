@@ -18,6 +18,7 @@ function rankify(A, n)
     return R;
 }
 const PollResult=()=>{
+    
     const [currentUserDishRank,setCurrentUserDishRank]=useState([]);
     const [overallResult,setOverallResult]=useState([[],[],[]]);
     const [curMap,setCurMap]=useState({});
@@ -108,10 +109,12 @@ const PollResult=()=>{
             });
             setSortable(soable);
         }
+        
     },[]);
 
     return(
         <>
+        {/* {window.location.reload()} */}
             <Bar/>
             <div className="container m-2 h3">Overall Result</div>
             <table className="table table-striped m-3 table-bordered" style={{width:"50vh"}}>
